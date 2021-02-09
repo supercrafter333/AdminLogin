@@ -5,9 +5,9 @@ Wich this plugin you can select groups and set a code for Login to the groups, f
 I hope that this plugin is usefull :)
 
 ### Features
-- login with a code for more safety on your server
-- select groups (and a code) for login
-- very customizing, edit UI texts and messages
+- Easy to use (set the groups and the codes for the groups in the `config.yml` and start)
+- Very customizable (You can change a lot of messages in the `messages.yml`)
+- Login for your Admins, Moderators and other Teammates, for more safety on your server
 
 ### License
 This plugin is Licensed under the [Apache 2.0 License](/LICENSE)! Plugin by supercrafter333!
