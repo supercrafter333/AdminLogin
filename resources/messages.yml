@@ -1,0 +1,22 @@
+#Here you can edit the messages and UI Texts of this plugin
+#UI part
+ui-title: "§cAdmin§7Login"
+ui-content: "§aPlease verify you with the Login-Key of you Group!"
+ui-key-placeholder: "for example: abc123"
+
+#Message part
+msg-right-code: "§aSuccesfully Login! You're now logged in!"
+msg-false-code-kickmsg: "§cThis is not the Right Key!"
+
+
+
+#Don't change this
+version: "1.0.0"
+
+#This plugin is Licensed under Apache 2.0 License by supercrafter333!
+#If you have questions or bugs, please open an Issue on Github:
+#Or contact me on Discord: supercrafter333#4062
+
+#I would be happy if you rate this plugin on Poggit:
+
+#Have fun :)
