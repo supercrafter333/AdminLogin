@@ -2,6 +2,7 @@
 
 namespace supercrafter333\AdminLogin;
 
+use jojoe77777\FormAPI\CustomForm;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
@@ -29,8 +30,7 @@ class EventListener implements Listener
     {
         $config = AdminLoginLoader::getInstance()->getConfigFile();
         $msgs = new Config(AdminLoginLoader::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
-        $api = AdminLoginLoader::getInstance()->getServer()->getPluginManager()->getPlugin("FormAPI");
-        $form = $api->createCustomForm(function (Player $player, array $data = null) {
+        $form = new CustomForm(function (Player $player, array $data = null) {
             $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
             if($data === null) {
                 $msxx = $msgs->get("msg-false-code-kickmsg");
