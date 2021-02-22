@@ -26,7 +26,7 @@ Owner: supercrafter333
 
 Main-Developer: supercrafter333
 
-Icon: No icon  --- Can anybody create a icon for this plugin?
+Icon: HannesTheDev [Thank you]
 
 Helpers: |---|
 

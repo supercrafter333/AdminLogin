@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="178f3701-2588-4ecf-8fea-6f358e9a55f3" name="Default Changelist" comment="Add poggit compatiblity3, add icon">
-      <change beforePath="$PROJECT_DIR$/.poggit.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.poggit.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,8 @@
       <workItem from="1613507207882" duration="599000" />
       <workItem from="1613509553618" duration="753000" />
       <workItem from="1613570429770" duration="44000" />
-      <workItem from="1614010241689" duration="186000" />
+      <workItem from="1614010241689" duration="204000" />
+      <workItem from="1614010596197" duration="74000" />
     </task>
     <task id="LOCAL-00001" summary="Add poggit compatiblity">
       <created>1613410051764</created>
@@ -91,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614010411359</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add poggit compatiblity3, add icon">
+      <created>1614010435332</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614010435332</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
