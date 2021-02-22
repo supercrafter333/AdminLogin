@@ -1,4 +1,4 @@
-# AdminLogin   [![](https://poggit.pmmp.io/shield.state/AdminLogin)](https://poggit.pmmp.io/p/AdminLogin)
+# AdminLogin   [![](https://poggit.pmmp.io/shield.state/AdminLogin)](https://poggit.pmmp.io/p/AdminLogin) <a href="https://poggit.pmmp.io/p/PTimeUI"><img src="https://poggit.pmmp.io/shield.dl.total/AdminLogin"></a>
 
 Wich this plugin you can select groups and set a code for Login to the groups, for more safety on your server!
 
