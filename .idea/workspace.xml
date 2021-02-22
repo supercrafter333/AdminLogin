@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="178f3701-2588-4ecf-8fea-6f358e9a55f3" name="Default Changelist" comment="Add poggit compatiblity2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="178f3701-2588-4ecf-8fea-6f358e9a55f3" name="Default Changelist" comment="Add poggit compatiblity3, add icon">
       <change beforePath="$PROJECT_DIR$/.poggit.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.poggit.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
       <workItem from="1613507207882" duration="599000" />
       <workItem from="1613509553618" duration="753000" />
       <workItem from="1613570429770" duration="44000" />
-      <workItem from="1614010241689" duration="143000" />
+      <workItem from="1614010241689" duration="186000" />
     </task>
     <task id="LOCAL-00001" summary="Add poggit compatiblity">
       <created>1613410051764</created>
@@ -85,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613509698896</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add poggit compatiblity3, add icon">
+      <created>1614010411359</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614010411359</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add poggit compatiblity" />
     <MESSAGE value="Add poggit compatiblity2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add poggit compatiblity2" />
+    <MESSAGE value="Add poggit compatiblity3, add icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add poggit compatiblity3, add icon" />
   </component>
 </project>
