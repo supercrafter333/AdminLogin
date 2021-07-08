@@ -9,6 +9,23 @@ I hope that this plugin is usefull :)
 - Very customizable (You can change a lot of messages in the `messages.yml`)
 - Login for your Admins, Moderators and other Teammates, for more safety on your server
 
+### How to?
+1. Go to the vonfig of AdminLogin
+2. Go to `config.yml`
+3. Add new entry like the other entrys
+
+Example:
+```yml
+Owner:
+  code: "ownerx6859430"
+Admin:
+  code: "adminx6584317"
+Developer:
+  code: "developerx776"
+YourNewGroup:
+  code: "code for group"
+```
+
 ### License
 This plugin is Licensed under the [Apache 2.0 License](/LICENSE)! Plugin by supercrafter333!
 
