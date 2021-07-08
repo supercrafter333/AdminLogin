@@ -10,7 +10,7 @@ I hope that this plugin is usefull :)
 - Login for your Admins, Moderators and other Teammates, for more safety on your server
 
 ### How to?
-1. Go to the vonfig of AdminLogin
+1. Go to the config of AdminLogin
 2. Go to `config.yml`
 3. Add new entry like the other entrys
 
