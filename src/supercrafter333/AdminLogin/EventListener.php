@@ -9,9 +9,15 @@ use pocketmine\Player;
 use pocketmine\utils\Config;
 use jojoe77777\FormAPI\CustomForm;
 
+/**
+ *
+ */
 class EventListener implements Listener
 {
 
+    /**
+     * @param PlayerJoinEvent $event
+     */
     public function onJoin(PlayerJoinEvent $event)
     {
         $player = $event->getPlayer();
@@ -26,7 +32,11 @@ class EventListener implements Listener
         }
     }
 
-    public function AdminLoginForm(Player $player)
+    /**
+     * @param Player $player
+     * @return CustomForm
+     */
+    public function AdminLoginForm(Player $player): CustomForm
     {
         $config = AdminLoginLoader::getInstance()->getConfigFile();
         $msgs = new Config(AdminLoginLoader::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
@@ -47,11 +57,18 @@ class EventListener implements Listener
     }
 
     /*API Part*/
-    public static function getListener()
+    /**
+     * @return EventListener
+     */
+    public static function getListener(): EventListener
     {
         return new EventListener();
     }
 
+    /**
+     * @param Player $player
+     * @return bool
+     */
     public function checkGroup(Player $player): bool
     {
         $plugin = AdminLoginLoader::getInstance();
@@ -65,8 +82,15 @@ class EventListener implements Listener
         return false;
     }
 
+    /**
+     * @var
+     */
     protected $code;
 
+    /**
+     * @param Player $player
+     * @param $index
+     */
     public function checkGroupAndKey(Player $player, $index)
     {
         $plugin = AdminLoginLoader::getInstance();
@@ -86,14 +110,20 @@ class EventListener implements Listener
         }
     }
 
+    /**
+     * @param Player $player
+     */
     public function trueCode(Player $player)
     {
         $plugin = AdminLoginLoader::getInstance();
         $msgs = new Config($plugin->getDataFolder() . "messages.yml", Config::YAML);
         $player->sendMessage($msgs->get("msg-right-code"));
-        $player->getLevel()->broadcastLevelSoundEvent($player, LevelSoundEventPacket::SOUND_LEVELUP, (int)mt_rand());
+        $player->getLevel()->broadcastLevelSoundEvent($player, LevelSoundEventPacket::SOUND_LEVELUP, mt_rand());
     }
 
+    /**
+     * @param Player $player
+     */
     public function falseCode(Player $player)
     {
         $plugin = AdminLoginLoader::getInstance();
