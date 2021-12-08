@@ -27,7 +27,7 @@ YourNewGroup:
 ```
 
 ### License
-This plugin is Licensed under the [Apache 2.0 License](/LICENSE)! Plugin by supercrafter333!
+This plugin is licensed under the [Apache 2.0 License](/LICENSE)! Plugin by supercrafter333!
 
 ### TODOs
 |--------------------------|
