@@ -2,12 +2,12 @@
 
 namespace supercrafter333\AdminLogin;
 
+use jojoe77777\FormAPI\CustomForm;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\utils\Config;
-use jojoe77777\FormAPI\CustomForm;
+use pocketmine\world\sound\XpLevelUpSound;
 
 /**
  *
@@ -72,7 +72,7 @@ class EventListener implements Listener
     public function checkGroup(Player $player): bool
     {
         $plugin = AdminLoginLoader::getInstance();
-        $msgs = new Config($plugin->getDataFolder() . "messages.yml", Config::YAML);
+        $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
         $mgr = $plugin->getPurePermsUserMgr();
         $groupname = $plugin->getPurePermsUserGroupName($player);
         $config = $plugin->getConfigFile();
@@ -94,10 +94,10 @@ class EventListener implements Listener
     public function checkGroupAndKey(Player $player, $index)
     {
         $plugin = AdminLoginLoader::getInstance();
-        $msgs = new Config($plugin->getDataFolder() . "messages.yml", Config::YAML);
+        $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
         $mgr = $plugin->getPurePermsUserMgr();
         $groupname = $plugin->getPurePermsUserGroupName($player);
-        $config = new Config($plugin->getDataFolder() . "config.yml", Config::YAML);
+        $config = AdminLoginLoader::getInstance()->getConfigFile();
         if ($config->exists($groupname)) {
             $code = $config->get($groupname)["code"];
             $indexstring = "$index[1]";
@@ -116,9 +116,9 @@ class EventListener implements Listener
     public function trueCode(Player $player)
     {
         $plugin = AdminLoginLoader::getInstance();
-        $msgs = new Config($plugin->getDataFolder() . "messages.yml", Config::YAML);
+        $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
         $player->sendMessage($msgs->get("msg-right-code"));
-        $player->getLevel()->broadcastLevelSoundEvent($player, LevelSoundEventPacket::SOUND_LEVELUP, mt_rand());
+        $player->broadcastSound(new XpLevelUpSound(mt_rand()), [$player]);
     }
 
     /**
@@ -127,7 +127,7 @@ class EventListener implements Listener
     public function falseCode(Player $player)
     {
         $plugin = AdminLoginLoader::getInstance();
-        $msgs = new Config($plugin->getDataFolder() . "messages.yml", Config::YAML);
+        $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
         $player->kick($msgs->get("msg-false-code-kickmsg"), false);
     }
     /*End of API part*/

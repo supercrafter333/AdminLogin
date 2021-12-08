@@ -1,6 +1,6 @@
 name: AdminLogin
 version: 1.0.0
-api: 3.0.0
+api: 4.0.0
 main: supercrafter333\AdminLogin\AdminLoginLoader
 author: supercrafter333
 depend: PurePerms

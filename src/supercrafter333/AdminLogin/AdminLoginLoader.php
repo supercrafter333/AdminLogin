@@ -2,7 +2,7 @@
 
 namespace supercrafter333\AdminLogin;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
@@ -16,24 +16,18 @@ class AdminLoginLoader extends PluginBase
     /**
      * @var
      */
-    public $config;
-
-    /**
-     * @var
-     */
-    public $msgconfig;
+    public Config $msgconfig;
 
     /**
      * @var AdminLoginLoader
      */
     public static AdminLoginLoader $instance;
 
-    public function onEnable()
+    public function onEnable(): void
     {
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
         $this->saveResource("config.yml");
         $this->saveResource("messages.yml");
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
         $this->msgconfig = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
         self::$instance = $this;
         if ($this->msgconfig->get("version") !== "1.0.0") {
@@ -56,7 +50,7 @@ class AdminLoginLoader extends PluginBase
      */
     public function getConfigFile(): Config
     {
-        return $this->config;
+        return $this->getConfig();
     }
 
     /**
