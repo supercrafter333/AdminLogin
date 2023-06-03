@@ -20,6 +20,6 @@ class GroupSystemPlugin implements GroupPlugin
      */
     public function getGroupNameByPlayer(Player $player): null|string
     {
-        return GroupSystem::getInstance()->getPlayerGroupManager()->getPlayer($player->getName())?->getNextHighestGroup()?->getGroup()->getName();
+        return GroupSystem::getInstance()->getPlayerGroupManager()->getGroup($player->getName())->getGroup()->getName();
     }
 }
