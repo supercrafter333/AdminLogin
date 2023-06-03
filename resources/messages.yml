@@ -11,7 +11,7 @@ msg-false-code-kickmsg: "§cThis is not the Right Key!"
 
 
 #Don't change this
-version: "1.0.0"
+version: "1.1.0"
 
 #This plugin is Licensed under Apache 2.0 License by supercrafter333!
 #If you have questions or bugs, please open an Issue on Github:

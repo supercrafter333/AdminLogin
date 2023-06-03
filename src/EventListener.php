@@ -8,28 +8,15 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\player\Player;
 use pocketmine\utils\Config;
 use pocketmine\world\sound\XpLevelUpSound;
+use supercrafter333\AdminLogin\groupPlugin\GroupPluginManager;
 
-/**
- *
- */
 class EventListener implements Listener
 {
 
-    /**
-     * @param PlayerJoinEvent $event
-     */
-    public function onJoin(PlayerJoinEvent $event)
+    public function onJoin(PlayerJoinEvent $event): void
     {
         $player = $event->getPlayer();
-        $name = $player->getName();
-        $plugin = AdminLoginLoader::getInstance();
-        $msgs = $plugin->getMessageConfigFile();
-        $mgr = $plugin->getPurePermsUserMgr();
-        $groupname = $plugin->getPurePermsUserGroupName($player);
-        $config = $plugin->getConfigFile();
-        if ($this->checkGroup($player) == true) {
-            $this->AdminLoginForm($player);
-        }
+        if ($this->checkGroup($player)) $this->AdminLoginForm($player);
     }
 
     /**
@@ -38,7 +25,6 @@ class EventListener implements Listener
      */
     public function AdminLoginForm(Player $player): CustomForm
     {
-        $config = AdminLoginLoader::getInstance()->getConfigFile();
         $msgs = new Config(AdminLoginLoader::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         $form = new CustomForm(function (Player $player, array $data = null) {
             $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
@@ -57,13 +43,6 @@ class EventListener implements Listener
     }
 
     /*API Part*/
-    /**
-     * @return EventListener
-     */
-    public static function getListener(): EventListener
-    {
-        return new EventListener();
-    }
 
     /**
      * @param Player $player
@@ -71,51 +50,38 @@ class EventListener implements Listener
      */
     public function checkGroup(Player $player): bool
     {
-        $plugin = AdminLoginLoader::getInstance();
-        $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
-        $mgr = $plugin->getPurePermsUserMgr();
-        $groupname = $plugin->getPurePermsUserGroupName($player);
-        $config = $plugin->getConfigFile();
-        if ($config->exists($groupname)) {
-            return true;
-        }
-        return false;
+        $groupname = GroupPluginManager::getGroupPlugin()->getGroupNameByPlayer($player);
+        $config = AdminLoginLoader::getInstance()->getConfigFile();
+        return $config->exists($groupname);
     }
 
-    /**
-     * @var
-     */
     protected $code;
 
     /**
      * @param Player $player
-     * @param $index
+     * @param string $index
      */
-    public function checkGroupAndKey(Player $player, $index)
+    public function checkGroupAndKey(Player $player, string $index): void
     {
         $plugin = AdminLoginLoader::getInstance();
-        $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
-        $mgr = $plugin->getPurePermsUserMgr();
-        $groupname = $plugin->getPurePermsUserGroupName($player);
+        $groupname = GroupPluginManager::getGroupPlugin()->getGroupNameByPlayer($player);
         $config = AdminLoginLoader::getInstance()->getConfigFile();
+
         if ($config->exists($groupname)) {
             $code = $config->get($groupname)["code"];
             $indexstring = "$index[1]";
             $plugin->getServer()->getLogger()->info($code);
-            if ($indexstring === $code) {
-                $this->trueCode($player);
-            } else {
-                $this->falseCode($player);
-            }
+
+            if ($indexstring === $code) $this->trueCode($player);
+            else $this->falseCode($player);
         }
     }
 
     /**
      * @param Player $player
      */
-    public function trueCode(Player $player)
+    public function trueCode(Player $player): void
     {
-        $plugin = AdminLoginLoader::getInstance();
         $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
         $player->sendMessage($msgs->get("msg-right-code"));
         $player->broadcastSound(new XpLevelUpSound(mt_rand()), [$player]);
@@ -124,9 +90,8 @@ class EventListener implements Listener
     /**
      * @param Player $player
      */
-    public function falseCode(Player $player)
+    public function falseCode(Player $player): void
     {
-        $plugin = AdminLoginLoader::getInstance();
         $msgs = AdminLoginLoader::getInstance()->getMessageConfigFile();
         $player->kick($msgs->get("msg-false-code-kickmsg"), false);
     }

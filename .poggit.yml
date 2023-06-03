@@ -7,4 +7,4 @@ projects:
     icon: "icon.png"
     path: ""
     libs:
-      - src: https://poggit.pmmp.io/ci/CLADevs/FormAPI-4.0/libFormAPI
+      - src: "https://poggit.pmmp.io/ci/supercrafter333/FormAPI/libFormAPI"

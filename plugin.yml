@@ -1,6 +1,9 @@
 name: AdminLogin
-version: 1.0.0
-api: 4.0.0
+version: 1.1.0
+api: 5.0.0
 main: supercrafter333\AdminLogin\AdminLoginLoader
+src-namespace-prefix: supercrafter333\AdminLogin
 author: supercrafter333
-depend: PurePerms
+softdepend:
+  - "GroupSystem"
+  - "RankSystem"

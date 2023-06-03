@@ -2,48 +2,36 @@
 
 namespace supercrafter333\AdminLogin;
 
-use pocketmine\player\Player;
-use pocketmine\plugin\Plugin;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
+use pocketmine\utils\SingletonTrait;
+use supercrafter333\AdminLogin\groupPlugin\GroupPluginManager;
 
-/**
- *
- */
 class AdminLoginLoader extends PluginBase
 {
+    use SingletonTrait;
 
-    /**
-     * @var
-     */
-    public Config $msgconfig;
-
-    /**
-     * @var AdminLoginLoader
-     */
-    public static AdminLoginLoader $instance;
+    private Config $msgconfig;
 
     public function onEnable(): void
     {
+        self::setInstance($this);
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
+
         $this->saveResource("config.yml");
         $this->saveResource("messages.yml");
+
         $this->msgconfig = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
-        self::$instance = $this;
-        if ($this->msgconfig->get("version") !== "1.0.0") {
+        if ($this->msgconfig->get("version") < "1.0.0") {
             $this->getLogger()->error("AdminLogin >> OUTDATED CONFIGURATION FILE!! You configuration file messages.yml is outdated, please delete the file and restart your server for using the newest version of the file!");
             $this->getServer()->getPluginManager()->disablePlugin($this);
         }
+
+        GroupPluginManager::startup();
     }
 
+
     /*API Part*/
-    /**
-     * @return static
-     */
-    public static function getInstance(): self
-    {
-        return self::$instance;
-    }
 
     /**
      * @return Config
@@ -59,33 +47,6 @@ class AdminLoginLoader extends PluginBase
     public function getMessageConfigFile(): Config
     {
         return $this->msgconfig;
-    }
-
-    /**
-     * @return Plugin|null
-     */
-    public function getPurePerms(): ?Plugin
-    {
-        return $this->getServer()->getPluginManager()->getPlugin("PurePerms");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPurePermsUserMgr()
-    {
-        $pureperms = $this->getPurePerms();
-        return $pureperms->getUserDataMgr();
-    }
-
-    /**
-     * @param Player $player
-     * @return mixed
-     */
-    public function getPurePermsUserGroupName(Player $player)
-    {
-        $ppUserMgr = $this->getPurePermsUserMgr();
-        return $ppUserMgr->getGroup($player)->getName();
     }
     /*End of API Part*/
 }
